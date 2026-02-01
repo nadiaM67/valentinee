@@ -1,25 +1,62 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Be My Valentine 💖</title>
   <style>
-    * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Poppins', cursive; margin: 0; padding: 0; }
-    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #ffb6c1, #ffc0cb); overflow: hidden; }
+    /* Use system-friendly fonts for iPhone and all devices */
+    * { 
+      box-sizing: border-box; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+    }
+    body { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb); 
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-    .card { background: #fff0f5; padding: 5vw; border-radius: 5vw; text-align: center; box-shadow: 0 3vw 6vw rgba(0,0,0,0.15); max-width: 90vw; animation: pop 0.6s ease-out; }
-    h1 { color: #ff4d6d; margin-bottom: 2vw; font-size: 6vw; }
-    p { color: #ff6f91; font-size: 4vw; margin-bottom: 5vw; }
+    .card { 
+      background: #fff0f5; 
+      padding: 5vw; 
+      border-radius: 5vw; 
+      text-align: center; 
+      box-shadow: 0 3vw 6vw rgba(0,0,0,0.15); 
+      max-width: 90vw; 
+      animation: pop 0.6s ease-out; 
+    }
+    h1 { 
+      color: #ff4d6d; 
+      margin-bottom: 2vw; 
+      font-size: clamp(24px, 6vw, 60px); 
+    }
+    p { 
+      color: #ff6f91; 
+      font-size: clamp(16px, 4vw, 40px); 
+      margin-bottom: 5vw; 
+    }
 
-    button { padding: 3vw 6vw; font-size: 4vw; border: none; border-radius: 10vw; cursor: pointer; transition: transform 0.2s ease; }
+    button { 
+      padding: 3vw 6vw; 
+      font-size: clamp(14px, 4vw, 36px); 
+      border: none; 
+      border-radius: 10vw; 
+      cursor: pointer; 
+      transition: transform 0.2s ease; 
+    }
     button:hover { transform: scale(1.1); }
 
     #yesBtn { background: #ff4d6d; color: white; margin-right: 2vw; }
     #noBtn { background: #ffd1dc; color: #ff4d6d; position: absolute; }
 
     .result { display: none; }
-    .result h2 { color: #ff4d6d; margin-bottom: 5vw; font-size: 5vw; }
+    .result h2 { color: #ff4d6d; margin-bottom: 5vw; font-size: clamp(20px, 5vw, 50px); }
     .result img { width: 60vw; border-radius: 5vw; max-width: 300px; }
 
     @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -96,5 +133,4 @@
   </script>
 
 </body>
-
 </html>
