@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine 💖</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Poppins', cursive; margin: 0; padding: 0; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #ffb6c1, #ffc0cb); overflow: hidden; }
+
+    .card { background: #fff0f5; padding: 5vw; border-radius: 5vw; text-align: center; box-shadow: 0 3vw 6vw rgba(0,0,0,0.15); max-width: 90vw; animation: pop 0.6s ease-out; }
+    h1 { color: #ff4d6d; margin-bottom: 2vw; font-size: 6vw; }
+    p { color: #ff6f91; font-size: 4vw; margin-bottom: 5vw; }
+
+    button { padding: 3vw 6vw; font-size: 4vw; border: none; border-radius: 10vw; cursor: pointer; transition: transform 0.2s ease; }
+    button:hover { transform: scale(1.1); }
+
+    #yesBtn { background: #ff4d6d; color: white; margin-right: 2vw; }
+    #noBtn { background: #ffd1dc; color: #ff4d6d; position: absolute; }
+
+    .result { display: none; }
+    .result h2 { color: #ff4d6d; margin-bottom: 5vw; font-size: 5vw; }
+    .result img { width: 60vw; border-radius: 5vw; max-width: 300px; }
+
+    @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+    .heart { position: fixed; bottom: -5vw; font-size: 6vw; animation: floatUp 4s linear forwards; }
+    @keyframes floatUp { to { transform: translateY(-110vh); opacity: 0; } }
+
+    /* Preloader animation */
+    @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(0.8); opacity: 0.7; } }
+  </style>
+</head>
+<body>
+
+  <!-- Made with love, chaos, and JavaScript 💖 Author: Nadia -->
+
+  <!-- Preloader -->
+  <div id="preloader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#ffc0cb;display:flex;justify-content:center;align-items:center;z-index:9999;">
+    <div style="font-size:10vw;animation:pulse 1s infinite;">💘</div>
+  </div>
+
+  <div class="card" id="question">
+    <h1>Bibi 💕</h1>
+    <p>Will you be my Valentine?</p>
+    <div style="position: relative; height: 10vw;">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 💔</button>
+    </div>
+  </div>
+
+  <div class="card result" id="result">
+    <h2>THAT'S RIGHT BITCH, YOU'RE MINE FOREVER! 😼💖</h2>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2E1cGxkMGNnYjZ3ZDNkZXl0cHJlYWZ4d2J1b3R1cGZ2N2E3NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MDJ9IbxxvDUQM/giphy.gif" alt="Cute cats gif">
+  </div>
+
+  <audio id="yaySound" src="https://www.myinstants.com/media/sounds/anime-wow.mp3"></audio>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const question = document.getElementById('question');
+    const result = document.getElementById('result');
+
+    // Hide preloader after 2 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').style.display = 'none';
+      }, 2000);
+    });
+
+    // Runaway No button (responsive)
+    noBtn.addEventListener('mousemove', () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+
+    // Yes button click
+    yesBtn.addEventListener('click', () => {
+      document.getElementById('yaySound').play();
+      question.style.display = 'none';
+      result.style.display = 'block';
+    });
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '💘';
+      heart.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }, 500);
+  </script>
+
+</body>
+</html>
